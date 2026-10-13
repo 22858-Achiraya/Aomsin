@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff3f7">
+<title>กระปุกออมใจ ♡ รายรับรายจ่าย</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600;700&display=swap');
+:root{--pink:#ff8fb1;--pink2:#ffe0eb;--cream:#fffaf3;--ink:#493d4a;--muted:#8d7e8b;--green:#71b99b;--blue:#8bbde8;--yellow:#ffcf70;--card:#fff;--line:#f3e4eb;--shadow:0 12px 32px #d99bb51c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#fff7f9 0%,#fffaf0 55%,#f3f8ff 100%);color:var(--ink);font-family:'Kanit',sans-serif;font-size:17px;min-height:100vh}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f8a8c2;outline-offset:2px}
+.wrap{width:min(1120px,calc(100% - 28px));margin:auto;padding:22px 0 45px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(125deg,#ffcfdf,#ffe8ed 55%,#e9f4ff);border:2px solid #fff;border-radius:30px;padding:26px clamp(20px,5vw,48px);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:#ffffff65;pointer-events:none}.hero:before{width:180px;height:180px;right:12%;top:-105px}.hero:after{width:90px;height:90px;right:38%;bottom:-65px}
+.hero-copy{position:relative;z-index:1}.eyebrow{font-size:14px;letter-spacing:.5px;color:#a05c79;font-weight:600}.hero h1{font-family:'Itim','Kanit',sans-serif;font-size:clamp(30px,5vw,48px);line-height:1.15;margin:5px 0 8px;color:#70495e}.hero p{margin:0;font-size:17px;color:#765d6b}.mascot{position:relative;z-index:1;font-size:clamp(62px,10vw,100px);filter:drop-shadow(0 7px 0 #ffffff80);animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.btn{border-radius:14px;padding:10px 15px;font-weight:600;transition:transform .18s,box-shadow .18s}.btn:hover{transform:translateY(-2px);box-shadow:0 7px 15px #b77b9226}.btn-primary{background:#e96f9a;color:white}.btn-soft{background:#fff;color:#89546c;border:1px solid #f5d3e0}.btn-green{background:#e1f6ed;color:#367c61}.btn-small{padding:7px 11px;font-size:15px;border-radius:11px}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}.sum-card{border-radius:23px;padding:18px 20px;background:white;border:1px solid #fff;box-shadow:var(--shadow);position:relative;overflow:hidden}.sum-card:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;right:-18px;bottom:-25px;background:var(--bubble,#ffe4ed)}.sum-head{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:16px}.sum-icon{width:39px;height:39px;border-radius:13px;display:grid;place-items:center;font-size:21px;background:var(--bubble)}.sum-value{font-size:clamp(23px,3vw,32px);font-weight:700;line-height:1.35;margin-top:8px;overflow-wrap:anywhere}.sum-note{font-size:14px;color:var(--muted)}
+.panel{background:#ffffffdf;border:1px solid #fff;border-radius:24px;padding:20px;box-shadow:var(--shadow);margin-top:16px}.panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.panel-title h2{font-size:23px;margin:0;font-weight:600}.panel-title p{margin:3px 0 0;color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field label{font-size:16px;font-weight:500}.field input,.field select,.field textarea,.filters input,.filters select{width:100%;border:1.5px solid #f0dfe7;background:#fffdfd;border-radius:13px;padding:12px 13px;color:var(--ink);min-height:48px}.field textarea{resize:vertical;min-height:76px}.field input::placeholder,.field textarea::placeholder{color:#b6a6b0}.type-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.type-btn{border:2px solid var(--line);background:#fff;border-radius:14px;padding:12px;font-weight:600;color:var(--muted)}.type-btn.active.income{background:#e8f8ef;border-color:#91d2b2;color:#32815d}.type-btn.active.expense{background:#fff0f4;border-color:#f6a9c1;color:#c14f7b}
+.form-bottom{display:flex;gap:9px;flex-wrap:wrap}.form-bottom .btn{flex:1;min-height:48px}.tip{font-size:14px;color:var(--muted);margin-top:11px}
+.budget-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.budget-row strong{font-size:20px}.progress{height:13px;background:#f8e6ed;border-radius:20px;overflow:hidden;margin:12px 0 7px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff9dbc,#ffca8a);border-radius:20px;transition:width .35s}.budget-msg{font-size:15px;color:var(--muted)}
+.filters{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:9px;margin-bottom:14px}.transactions{display:flex;flex-direction:column;gap:9px}.tx{display:grid;grid-template-columns:45px minmax(0,1fr) auto auto;align-items:center;gap:11px;background:#fff;border:1px solid #f5e7ed;border-radius:17px;padding:12px}.tx-icon{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:#fff0f5;font-size:22px}.tx.income .tx-icon{background:#e8f8ef}.tx-main{min-width:0}.tx-title{font-weight:600;font-size:17px;overflow-wrap:anywhere}.tx-meta{font-size:14px;color:var(--muted);overflow-wrap:anywhere}.tx-amount{font-size:18px;font-weight:700;white-space:nowrap}.tx.income .tx-amount{color:#31956b}.tx.expense .tx-amount{color:#d45c83}.tx-tools{display:flex;gap:5px}.icon-btn{background:#fff4f7;color:#a16a80;border-radius:10px;padding:8px;font-size:15px}.empty{text-align:center;padding:30px 10px;color:var(--muted)}.empty span{display:block;font-size:48px;margin-bottom:6px}
+.reminder-list{display:flex;flex-direction:column;gap:9px}.reminder{display:flex;gap:10px;align-items:center;background:#fff8e9;border:1px solid #f9e6b7;border-radius:15px;padding:12px}.reminder.done{opacity:.6}.reminder .rem-text{flex:1;min-width:0}.reminder strong{display:block;overflow-wrap:anywhere}.reminder small{color:var(--muted)}.reminder input[type=checkbox]{width:21px;height:21px;accent-color:#e96f9a}
+.footer{text-align:center;padding:25px 8px 0;color:#9c8793;font-size:14px}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:#65495a;color:white;padding:12px 18px;border-radius:15px;box-shadow:0 12px 28px #51334735;opacity:0;pointer-events:none;transition:.25s;z-index:20;max-width:calc(100% - 28px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.pop{animation:pop .35s ease}@keyframes pop{0%{transform:scale(.95)}65%{transform:scale(1.02)}100%{transform:scale(1)}}
+@media(max-width:720px){.wrap{width:calc(100% - 20px);padding-top:10px}.hero{border-radius:23px;padding:22px 18px}.hero p{max-width:29ch}.mascot{font-size:60px}.summary{grid-template-columns:1fr;gap:9px;margin:12px 0}.sum-card{padding:13px 15px;display:grid;grid-template-columns:42px 1fr;column-gap:10px;align-items:center}.sum-head{grid-column:1/3}.sum-value{grid-column:2;grid-row:2;margin:0}.sum-note{grid-column:2}.sum-icon{grid-row:2/4}.panel{padding:16px;border-radius:20px}.grid{grid-template-columns:1fr;gap:0}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/3}.tx{grid-template-columns:40px minmax(0,1fr) auto;gap:8px;padding:10px}.tx-icon{width:39px;height:39px}.tx-amount{font-size:16px}.tx-tools{grid-column:2/4;justify-content:flex-end}.panel-title h2{font-size:21px}}
+@media(max-width:380px){.mascot{display:none}.filters{grid-template-columns:1fr}.filters input{grid-column:auto}.tx{grid-template-columns:36px minmax(0,1fr) auto}.tx-meta{font-size:12px}.tx-amount{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">♡ MY LITTLE MONEY JOURNAL ♡</div>
+    <h1>กระปุกออมใจ</h1>
+    <p>จดง่าย คิดให้ครบ ค่อย ๆ เก็บเงินไปด้วยกันนะ 🌷</p>
+    <div class="top-actions">
+      <button class="btn btn-primary" onclick="document.getElementById('entryPanel').scrollIntoView({behavior:'smooth'})">＋ เพิ่มรายการ</button>
+      <button class="btn btn-soft" id="notifyBtn">🔔 เปิดการแจ้งเตือน</button>
+    </div>
+  </div>
+  <div class="mascot" aria-label="คาแรกเตอร์น่ารัก">🐰</div>
+</header>
+
+<section class="summary" aria-label="สรุปการเงิน">
+  <article class="sum-card" style="--bubble:#e3f7eb;--bubble2:#e3f7eb">
+    <div class="sum-head"><span class="sum-icon" style="--bubble:#e3f7eb">🌱</span> รายรับเดือนนี้</div>
+    <div class="sum-value" id="incomeTotal">฿0.00</div><div class="sum-note" id="incomeCount">0 รายการ</div>
+  </article>
+  <article class="sum-card" style="--bubble:#ffe5ee">
+    <div class="sum-head"><span class="sum-icon" style="--bubble:#ffe5ee">🧁</span> รายจ่ายเดือนนี้</div>
+    <div class="sum-value" id="expenseTotal">฿0.00</div><div class="sum-note" id="expenseCount">0 รายการ</div>
+  </article>
+  <article class="sum-card" style="--bubble:#e7efff">
+    <div class="sum-head"><span class="sum-icon" style="--bubble:#e7efff">🐣</span> คงเหลือเดือนนี้</div>
+    <div class="sum-value" id="balanceTotal">฿0.00</div><div class="sum-note" id="balanceNote">เริ่มบันทึกรายการแรกได้เลย</div>
+  </article>
+</section>
+
+<div class="grid">
+<section class="panel" id="entryPanel">
+  <div class="panel-title"><div><h2>📝 จดบันทึกเงิน</h2><p>ทุกบาทมีที่มาและมีเป้าหมายนะ</p></div></div>
+  <form id="entryForm">
+    <div class="type-switch">
+      <button type="button" class="type-btn active income" data-type="income">🌿 รายรับ</button>
+      <button type="button" class="type-btn expense" data-type="expense">🍓 รายจ่าย</button>
+    </div>
+    <div class="field"><label for="amount">จำนวนเงิน (บาท) *</label><input id="amount" type="number" min="0.01" step="0.01" placeholder="เช่น 120" required inputmode="decimal"></div>
+    <div class="field"><label for="title">รายการอะไรเอ่ย? *</label><input id="title" maxlength="100" placeholder="เช่น ค่าขนม, เงินค่ารถ, เงินที่ได้รับ" required></div>
+    <div class="field"><label for="category">หมวดหมู่</label><select id="category"></select></div>
+    <div class="field"><label for="date">วันที่</label><input id="date" type="date" required></div>
+    <div class="field"><label for="note">บันทึกเพิ่มเติม (ถ้ามี)</label><textarea id="note" maxlength="300" placeholder="ซื้อให้ใคร / จำไว้ว่าอะไร..."></textarea></div>
+    <div class="form-bottom"><button class="btn btn-primary" type="submit" id="saveBtn">♡ บันทึกรายการ</button><button class="btn btn-soft" type="button" id="cancelEdit" hidden>ยกเลิกแก้ไข</button></div>
+  </form>
+  <div class="tip">💾 บันทึกอัตโนมัติไว้ในเบราว์เซอร์เครื่องนี้</div>
+</section>
+
+<section class="panel">
+  <div class="panel-title"><div><h2>🎯 เป้าหมายใช้เงิน</h2><p>ตั้งงบรายจ่ายต่อเดือนของตัวเอง</p></div></div>
+  <div class="field"><label for="budgetInput">งบรายจ่ายต่อเดือน (บาท)</label><input id="budgetInput" type="number" min="0" step="1" placeholder="เช่น 3000" inputmode="decimal"></div>
+  <button class="btn btn-green" id="saveBudget">บันทึกงบประมาณ</button>
+  <div class="progress"><span id="budgetProgress"></span></div>
+  <div class="budget-row"><span class="budget-msg" id="budgetMessage">ตั้งงบเพื่อเริ่มติดตามกันเลย</span><strong id="budgetPercent">0%</strong></div>
+  <hr style="border:0;border-top:1px dashed #f0dce5;margin:20px 0">
+  <div class="panel-title"><div><h2>⏰ เตือนความจำ</h2><p>จดสิ่งที่ต้องจำไว้ ไม่ให้ลืมง่าย ๆ</p></div></div>
+  <form id="reminderForm">
+    <div class="field"><label for="reminderText">เรื่องที่ต้องจำ *</label><input id="reminderText" maxlength="120" placeholder="เช่น พรุ่งนี้ต้องจ่ายค่าหนังสือ" required></div>
+    <div class="field"><label for="reminderDate">วันและเวลาที่อยากให้เตือน</label><input id="reminderDate" type="datetime-local"></div>
+    <button class="btn btn-primary" type="submit">🔔 เพิ่มเตือนความจำ</button>
+  </form>
+  <div class="tip">หมายเหตุ: การแจ้งเตือนจะทำงานเมื่อเว็บเปิดอยู่ และต้องอนุญาตการแจ้งเตือนก่อน</div>
+  <div class="reminder-list" id="reminderList" style="margin-top:12px"></div>
+</section>
+</div>
+
+<section class="panel" id="historyPanel">
+  <div class="panel-title"><div><h2>🧺 สมุดบันทึกของฉัน</h2><p>ค้นหา กรองรายการ และแก้ไขข้อมูลย้อนหลังได้</p></div><button class="btn btn-soft btn-small" id="exportBtn">⬇ ส่งออก CSV</button></div>
+  <div class="filters">
+    <input id="searchInput" type="search" placeholder="🔎 ค้นหารายการหรือบันทึก...">
+    <select id="typeFilter"><option value="all">รายรับ + รายจ่าย</option><option value="income">รายรับเท่านั้น</option><option value="expense">รายจ่ายเท่านั้น</option></select>
+    <select id="monthFilter" aria-label="กรองเดือน"></select>
+  </div>
+  <div class="transactions" id="transactions"></div>
+</section>
+<div class="footer">ทำบัญชีทีละนิด ก็เข้าใจเงินของตัวเองมากขึ้นได้ ♡<br>ข้อมูลเก็บไว้ในเบราว์เซอร์นี้ หากล้างข้อมูลเว็บไซต์หรือเปลี่ยนอุปกรณ์ ข้อมูลอาจหายได้</div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+const STORE_KEY = 'littleMoneyJournal_v1';
+const CATS = {
+ income:['เงินค่าขนม','เงินเดือน/ค่าจ้าง','ของขวัญ','ขายของ','เงินคืน','อื่น ๆ'],
+ expense:['อาหาร/ขนม','เดินทาง','การเรียน','ของใช้','ความบันเทิง','ช้อปปิ้ง','ออมเงิน','สุขภาพ','อื่น ๆ']
+};
+let state = {transactions:[], reminders:[], budget:0};
+let currentType='income', editingId=null, notified=new Set(), toastTimer;
+const today = new Date();
+const localDate = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const monthKey = date => (date||'').slice(0,7);
+const money = n => new Intl.NumberFormat('th-TH',{style:'currency',currency:'THB',minimumFractionDigits:2}).format(Number(n)||0);
+const safe = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2600)}
+function load(){try{const raw=localStorage.getItem(STORE_KEY);if(raw){const parsed=JSON.parse(raw);state={transactions:Array.isArray(parsed.transactions)?parsed.transactions:[],reminders:Array.isArray(parsed.reminders)?parsed.reminders:[],budget:Number(parsed.budget)||0}}}catch(e){toast('อ่านข้อมูลที่บันทึกไว้ไม่สำเร็จ เบราว์เซอร์อาจปิดการจัดเก็บข้อมูล')}}
+function persist(){try{localStorage.setItem(STORE_KEY,JSON.stringify(state));return true}catch(e){toast('บันทึกไม่สำเร็จ พื้นที่เก็บข้อมูลอาจเต็ม');return false}}
+function fillCategories(){const sel=$('category');sel.innerHTML=CATS[currentType].map(c=>`<option>${safe(c)}</option>`).join('')}
+function setType(type){currentType=type;document.querySelectorAll('.type-btn').forEach(b=>b.classList.toggle('active',b.dataset.type===type));document.querySelectorAll('.type-btn').forEach(b=>b.classList.toggle(type,b.dataset.type===type));fillCategories()}
+document.querySelectorAll('.type-btn').forEach(b=>b.addEventListener('click',()=>setType(b.dataset.type)));
+function populateMonths(){const select=$('monthFilter'), old=select.value;const months=new Set([monthKey(localDate(today)),...state.transactions.map(t=>monthKey(t.date))]);select.innerHTML='<option value="all">ทุกเดือน</option>'+[...months].filter(Boolean).sort().reverse().map(m=>`<option value="${m}">${new Date(m+'-02T00:00:00').toLocaleDateString('th-TH',{month:'long',year:'numeric'})}</option>`).join('');if([...select.options].some(o=>o.value===old))select.value=old;else select.value=monthKey(localDate(today))}
+function totalsFor(month){const tx=state.transactions.filter(t=>monthKey(t.date)===month);const inc=tx.filter(t=>t.type==='income').reduce((s,t)=>s+Number(t.amount),0);const exp=tx.filter(t=>t.type==='expense').reduce((s,t)=>s+Number(t.amount),0);return {tx,inc,exp,balance:inc-exp}}
+function renderSummary(){const t=totalsFor(monthKey(localDate(today)));$('incomeTotal').textContent=money(t.inc);$('expenseTotal').textContent=money(t.exp);$('balanceTotal').textContent=money(t.balance);$('incomeCount').textContent=`${t.tx.filter(x=>x.type==='income').length} รายการ`; $('expenseCount').textContent=`${t.tx.filter(x=>x.type==='expense').length} รายการ`;$('balanceNote').textContent=t.balance<0?'รายจ่ายมากกว่ารายรับ ลองทบทวนงบกันนะ':t.balance===0?'บันทึกเงินทุกครั้งเพื่อเห็นภาพชัดขึ้น':'เก่งมาก! ดูแลเงินของตัวเองได้ดีเลย';const budget=Number(state.budget)||0, pct=budget>0?t.exp/budget*100:0;$('budgetProgress').style.width=Math.min(100,pct)+'%';$('budgetPercent').textContent=budget?Math.round(pct)+'%':'0%';$('budgetMessage').textContent=!budget?'ตั้งงบเพื่อเริ่มติดตามกันเลย':t.exp>budget?`ใช้เกินงบ ${money(t.exp-budget)} แล้วนะ`: `เหลืองบอีก ${money(budget-t.exp)}`;$('budgetInput').value=budget||''}
+function renderTransactions(){populateMonths();const q=$('searchInput').value.trim().toLowerCase(),type=$('typeFilter').value,month=$('monthFilter').value;const list=state.transactions.filter(t=>(type==='all'||t.type===type)&&(month==='all'||monthKey(t.date)===month)&&(!q||[t.title,t.category,t.note].join(' ').toLowerCase().includes(q))).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.createdAt||0)-(a.createdAt||0));const el=$('transactions');if(!list.length){el.innerHTML='<div class="empty"><span>🧸</span>ยังไม่เจอรายการเลย<br>ลองเพิ่มรายการแรกของคุณดูนะ</div>';return}el.innerHTML=list.map(t=>`<article class="tx ${t.type}"><div class="tx-icon">${t.type==='income'?'🌱':'🍓'}</div><div class="tx-main"><div class="tx-title">${safe(t.title)}</div><div class="tx-meta">${safe(t.date)} · ${safe(t.category)}${t.note?' · '+safe(t.note):''}</div></div><div class="tx-amount">${t.type==='income'?'+':'−'}${money(t.amount)}</div><div class="tx-tools"><button class="icon-btn" data-edit="${t.id}" aria-label="แก้ไข">✏️</button><button class="icon-btn" data-delete="${t.id}" aria-label="ลบ">🗑️</button></div></article>`).join('')}
+function renderReminders(){const el=$('reminderList');const list=[...state.reminders].sort((a,b)=>(a.done-b.done)||(a.when||'').localeCompare(b.when||''));if(!list.length){el.innerHTML='<div class="empty" style="padding:18px 5px"><span style="font-size:30px">💌</span>ยังไม่มีสิ่งที่ต้องเตือน</div>';return}el.innerHTML=list.map(r=>`<div class="reminder ${r.done?'done':''}"><input type="checkbox" data-done="${r.id}" ${r.done?'checked':''} aria-label="ทำเสร็จแล้ว"><div class="rem-text"><strong>${safe(r.text)}</strong><small>${r.when?new Date(r.when).toLocaleString('th-TH',{dateStyle:'medium',timeStyle:'short'}):'ไม่มีเวลาที่กำหนด'}${r.alerted?' · แจ้งเตือนแล้ว':''}</small></div><button class="icon-btn" data-remdelete="${r.id}" aria-label="ลบการเตือน">✕</button></div>`).join('')}
+function render(){renderSummary();renderTransactions();renderReminders()}
+$('date').value=localDate(today);
+$('entryForm').addEventListener('submit',e=>{e.preventDefault();const amount=Number($('amount').value),title=$('title').value.trim();if(!Number.isFinite(amount)||amount<=0||!title){toast('กรอกชื่อรายการและจำนวนเงินให้ถูกต้องก่อนนะ');return}const item={id:editingId||`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,type:currentType,amount,title,category:$('category').value,date:$('date').value||localDate(today),note:$('note').value.trim(),createdAt:Date.now()};if(editingId){const i=state.transactions.findIndex(t=>t.id===editingId);if(i>=0)state.transactions[i]=item;toast('แก้ไขรายการเรียบร้อยแล้ว ♡')}else{state.transactions.push(item);toast('บันทึกแล้ว เก่งมากเลย! 🌷')}persist();resetForm();render();$('historyPanel').scrollIntoView({behavior:'smooth',block:'nearest'})});
+function resetForm(){$('entryForm').reset();$('date').value=localDate(today);editingId=null;$('saveBtn').textContent='♡ บันทึกรายการ';$('cancelEdit').hidden=true;setType('income')}
+$('cancelEdit').addEventListener('click',resetForm);
+$('transactions').addEventListener('click',e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit){const t=state.transactions.find(x=>x.id===edit.dataset.edit);if(!t)return;editingId=t.id;setType(t.type);$('amount').value=t.amount;$('title').value=t.title;$('category').value=t.category;$('date').value=t.date;$('note').value=t.note||'';$('saveBtn').textContent='♡ บันทึกการแก้ไข';$('cancelEdit').hidden=false;$('entryPanel').scrollIntoView({behavior:'smooth'});return}if(del){const t=state.transactions.find(x=>x.id===del.dataset.delete);if(t&&confirm(`ลบรายการ “${t.title}” ใช่ไหม?`)){state.transactions=state.transactions.filter(x=>x.id!==t.id);persist();render();toast('ลบรายการแล้ว')}}});
+['searchInput','typeFilter','monthFilter'].forEach(id=>$(id).addEventListener(id==='searchInput'?'input':'change',renderTransactions));
+$('saveBudget').addEventListener('click',()=>{const n=Number($('budgetInput').value);if(n<0||!Number.isFinite(n)){toast('กรอกงบประมาณให้ถูกต้องนะ');return}state.budget=n;persist();renderSummary();toast('บันทึกเป้าหมายแล้ว 🎯')});
+$('reminderForm').addEventListener('submit',e=>{e.preventDefault();const text=$('reminderText').value.trim();if(!text)return;const when=$('reminderDate').value;state.reminders.push({id:`r${Date.now()}`,text,when:when?new Date(when).toISOString():'',done:false,alerted:false});persist();$('reminderForm').reset();renderReminders();toast('เพิ่มเตือนความจำแล้ว 💌')});
+$('reminderList').addEventListener('change',e=>{const el=e.target.closest('[data-done]');if(!el)return;const r=state.reminders.find(x=>x.id===el.dataset.done);if(r){r.done=el.checked;persist();renderReminders();toast(r.done?'ทำสำเร็จแล้ว เก่งมาก! ✨':'ย้ายกลับมาไว้ในรายการเตือนแล้ว')}});$('reminderList').addEventListener('click',e=>{const b=e.target.closest('[data-remdelete]');if(!b)return;state.reminders=state.reminders.filter(r=>r.id!==b.dataset.remdelete);persist();renderReminders();toast('ลบการเตือนแล้ว')});
+$('notifyBtn').addEventListener('click',async()=>{if(!('Notification'in window)){toast('เบราว์เซอร์นี้ไม่รองรับการแจ้งเตือน');return}try{const p=await Notification.requestPermission();if(p==='granted'){toast('เปิดการแจ้งเตือนแล้ว 🔔');checkReminders()}else toast('ยังไม่ได้อนุญาตการแจ้งเตือนนะ')}catch(e){toast('เปิดการแจ้งเตือนไม่สำเร็จ')}});
+function checkReminders(){if(!('Notification'in window)||Notification.permission!=='granted')return;const now=Date.now();state.reminders.forEach(r=>{if(!r.done&&!r.alerted&&r.when&&new Date(r.when).getTime()<=now){try{new Notification('กระปุกออมใจ 💗',{body:r.text,tag:r.id})}catch(e){}r.alerted=true;notified.add(r.id)}});if(notified.size){persist();renderReminders();notified.clear()}}
+$('exportBtn').addEventListener('click',()=>{if(!state.transactions.length){toast('ยังไม่มีรายการให้ส่งออก');return}const rows=[['วันที่','ประเภท','รายการ','หมวดหมู่','จำนวนเงิน','บันทึก'],...state.transactions.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(t=>[t.date,t.type==='income'?'รายรับ':'รายจ่าย',t.title,t.category,t.amount,t.note||''])];const csv='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='กระปุกออมใจ-รายรับรายจ่าย.csv';a.click();URL.revokeObjectURL(url);toast('ส่งออกไฟล์ CSV แล้ว ♡')});
+load();setType('income');render();if('Notification'in window&&Notification.permission==='granted')checkReminders();setInterval(checkReminders,30000);
+})();
+</script>
+</body>
+</html>
